@@ -47,10 +47,10 @@ $ sparseml.transformers.text_classification \
 
 The SparseML train script is a wrapper around a [Hugging Face script](https://huggingface.co/docs/transformers/run_scripts), and
 usage for most arguments follows the Hugging Face. The most important arguments for SparseML are:
-- `model_name_or_path` - Starting model. It can be a SparseZoo stub, HF model identifier, or a local directory
+- `model_name_or_path` specifies the starting model. It can be a SparseZoo stub, HF model identifier, or a local directory
 with `model.pt`, `tokenizer.json`, and `config.json`.
-- `recipe` - Recipe containing the training hyperparamters (SparseZoo stub or a local file).
-- `task_name` - Sentiment analysis task. If not provided, this also specifies the dataset, pipelines, and evaluation metrics.
+- `recipe` is the recipe containing the training hyperparamters (SparseZoo stub or a local file).
+- `task_name` specifies the sentiment analysis task. If not provided, this also specifies the dataset, pipelines, and evaluation metrics.
 
 To utilize a custom dataset, use the `--train_file` and `--validation_file` arguments. To use a dataset from the Hugging Face hub, use `--dataset_name`.
 See the [Hugging Face documents](https://huggingface.co/docs/transformers/run_scripts#run-a-script) for more details.
