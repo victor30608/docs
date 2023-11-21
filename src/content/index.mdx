@@ -6,18 +6,24 @@ index: 0
 ---
 
 # Neural Magic Documentation
- 
+
 Welcome to software-delivered AI... Welcome to Neural Magic! We enable you to deploy deep learning models on commodity CPUs with GPU-class performance.
 
 Through our guided experiences and documentation, you can discover how to unlock the full potential of your ML environment and accommodate the continuous growth of neural networks without adding complexity or cost.
 
-Neural Magic guided experiences and documentation will show how you can integrate ML into your application. You can do so quickly using DeepSparse, which is an inference runtime offering GPU class performance on CPUs and APIs for the fastest AI performance. First, select a model to deploy, which can be your own model in ONNX format or a model from Neural Magic’s SparseZoo&mdash;an open-source repository for sparse and sparse-quantized models. Then, use DeepSparse to benchmark, evaluate, and inference.
+Neural Magic guided experiences and documentation will show how you can integrate ML into your application.
+You can do so quickly using DeepSparse, which is an inference runtime offering GPU class performance on CPUs and APIs for the fastest AI performance.
+First, select a model to deploy, which can be your own model in ONNX format or a model from Neural Magic’s SparseZoo&mdash;an open-source repository for sparse and sparse-quantized models.
+Then, use DeepSparse to benchmark, evaluate, and inference.
 
-<img src="/src/images/infographic-extract1.png">
+<img src="/src/images/infographic-extract1.png" />
 
-Alternatively, you can sparsify your selected model before deploying to DeepSparse. Sparsification is accomplished with Neural Magic’s Sparsify&mdash;an ML optimization product to accelerate inference at scale&mdash;or SparseML&mdash;an open-source sparsification research framework. Once your model is optimized, use DeepSparse to benchmark, evaluate, and inference. Because DeepSparse reaches GPU-class performance with commodity CPUs, you do not need to tether deployments to accelerators in order to reach the performance needed for production.
+Alternatively, you can sparsify your selected model before deploying to DeepSparse.
+Sparsification is accomplished with Neural Magic’s Sparsify&mdash;an ML optimization product to accelerate inference at scale&mdash;or SparseML&mdash;an open-source sparsification research framework.
+Once your model is optimized, use DeepSparse to benchmark, evaluate, and inference.
+Because DeepSparse reaches GPU-class performance with commodity CPUs, you do not need to tether deployments to accelerators in order to reach the performance needed for production.
 
-<img src="/src/images/infographic-extract2.png">
+<img src="/src/images/infographic-extract2.png" />
 
 In summary, Neural Magic’s product suite enables two major workflows.
 
@@ -29,11 +35,15 @@ In summary, Neural Magic’s product suite enables two major workflows.
 
 2. **Optimizing a Model for Inference**
 
-    SparseZoo and SparseML work together to optimize models for inference with sparsity techniques, such as pruning and quantization.<br><br>SparseZoo is an open-source repository of pre-sparsified models (for example, sparse ResNet-50 has 95% of weights set to 0 while maintaining 99% of the baseline accuracy). SparseZoo is integrated with SparseML, making it simple for you to sparse transfer learning (fine-tune from a sparse model) onto your data.
+    SparseZoo and SparseML work together to optimize models for inference with sparsity techniques, such as pruning and quantization.
 
-    SparseML is an open-source library that extends PyTorch and TensorFlow to simplify the process of applying sparsity algorithms. Via simple CLI scripts or five lines of code, you can sparsify any model from scratch, or sparse transfer learn from pre-sparsified versions of foundation models such as ResNet, YOLOv5, or BERT.
+    SparseZoo is an open-source repository of pre-sparsified models (for example, sparse ResNet-50 has 95% of weights set to 0 while maintaining 99% of the baseline accuracy).
+    SparseZoo is integrated with SparseML, making it simple for you to sparse transfer learning (fine-tune from a sparse model) onto your data.
 
-<img src="/src/images/infographic.png">
+    SparseML is an open-source library that extends PyTorch and TensorFlow to simplify the process of applying sparsity algorithms.
+    Via simple CLI scripts or five lines of code, you can sparsify any model from scratch, or sparse transfer learn from pre-sparsified versions of foundation models such as ResNet, YOLOv5, or BERT.
+
+<img src="/src/images/infographic.png" />
 
 This was a quick look at Neural Magic’s suite of products. Now, we invite you to explore our products through guided experiences and documentation.
 

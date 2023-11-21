@@ -23,9 +23,9 @@ Sparsification and recipe concepts are explored more here.
 
 SparseZoo and SparseML extend PyTorch and TensorFlow with features for creating sparse models trained on custom data. Together, they enable two workflows:
 
-- **Sparse transfer learning**<br>This workflow fine-tunes a pre-sparsified foundation model (like ResNet-50 or BERT) from the SparseZoo onto a custom dataset while maintaining sparsity. This pathway works just like typical fine-tuning used in training CV and NLP models. Sparse transfer learning is strongly preferred if your model architecture is available in SparseZoo.
+- **Sparse transfer learning** This workflow fine-tunes a pre-sparsified foundation model (like ResNet-50 or BERT) from the SparseZoo onto a custom dataset while maintaining sparsity. This pathway works just like typical fine-tuning used in training CV and NLP models. Sparse transfer learning is strongly preferred if your model architecture is available in SparseZoo.
 
-- **Sparsification from scratch**<br>This workflow applies training-aware pruning and quantization algorithms to any trained PyTorch, TensorFlow, or Hugging Face model, with fine-grained control of hyperparameters. This pathway requires more experimentation, but allows you to create a sparse version of any model.
+- **Sparsification from scratch** This workflow applies training-aware pruning and quantization algorithms to any trained PyTorch, TensorFlow, or Hugging Face model, with fine-grained control of hyperparameters. This pathway requires more experimentation, but allows you to create a sparse version of any model.
 
 ### Sparse Transfer Learning
 
@@ -50,9 +50,9 @@ SparseML enables you to create a sparse model from scratch. The library contains
 
 Training-aware unstructured pruning and training-aware quantization are the best techniques for creating models with the highest levels of sparsity without suffering from much accuracy degradation.
 
-- **Gradual magnitude pruning (GMP)**<br>GMP is the best algorithm for unstructured pruning. With GMP, pruning occurs gradually over a training run. Over several epochs or training steps, the least impactful weights are iteratively removed. The non-zero weights are then fine-tuned to the objective function. This iterative process enables the model to adjust to a new optimization space after pathways are removed before pruning again.
+- **Gradual magnitude pruning (GMP)** GMP is the best algorithm for unstructured pruning. With GMP, pruning occurs gradually over a training run. Over several epochs or training steps, the least impactful weights are iteratively removed. The non-zero weights are then fine-tuned to the objective function. This iterative process enables the model to adjust to a new optimization space after pathways are removed before pruning again.
 
-- **Quantization-aware training (QAT)**<br>QAT is the best algorithm for quantization. With QAT, fake quantization operators are injected into the graph before quantizable nodes for activations, and weights are wrapped with fake quantization operators. The fake quantization operators interpolate the weights and activations down to INT8 on the forward pass, but enable a full update of the weights at FP32 on the backward pass. The updates to the weights at FP32 throughout the training process allow the model to adapt to the loss of information from quantization on the forward pass.
+- **Quantization-aware training (QAT)** QAT is the best algorithm for quantization. With QAT, fake quantization operators are injected into the graph before quantizable nodes for activations, and weights are wrapped with fake quantization operators. The fake quantization operators interpolate the weights and activations down to INT8 on the forward pass, but enable a full update of the weights at FP32 on the backward pass. The updates to the weights at FP32 throughout the training process allow the model to adapt to the loss of information from quantization on the forward pass.
 
 Applying these algorithms correctly in an ad-hoc way is challenging. To solve this dilemma, Neural Magic created SparseML, which implements these algorithms on top of PyTorch and TensorFlow.
 

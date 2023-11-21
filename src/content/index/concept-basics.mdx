@@ -35,10 +35,10 @@ Pruning is the process of removing weights from a trained deep learning model by
 
 Two types of pruning can be applied to a model:
 
-- **Structured pruning**<br>
+- **Structured pruning**
 Weights are pruned in groups (for example, entire channels or nodes). With structured pruning, it is easy for an inference runtime to include optimizations that speed-up the mode. Most runtimes will benefit from this type of pruning. However, structured pruning can have large negative impacts on the accuracy of the model, especially at the high levels of sparsity needed to see speedups.
 
-- **Unstructured pruning**<br>
+- **Unstructured pruning**
 Weights (or small groups of weights) are pruned in any pattern. With unstructured pruning, it is *very hard* for an inference runtime to include optimizations that speed-up the model. (As far as we know, DeepSparse is the only production-grade runtime focused on speedups from unstructured pruning.) The benefit of unstructured pruning, however, is that sparsity can be pushed to very high levels while maintaining high levels of accuracy. With both CNNs (ResNet-50) and transformers (BERT-base), Neural Magic has pruned 95% of weights while maintaining 99% of the accuracy of the baseline models.
 
 Neural Magic’s blog provides a detailed conceptual discussion of pruning.
@@ -53,10 +53,10 @@ By using lower precision, runtimes can reduce memory footprint and perform opera
 
 Broadly, there are two ways that pruning and quantization can be applied to a model:
 
-- **Post-training**<br>
+- **Post-training**
 Sparsity is applied in one pass with no training data. Post-training pruning and quantization optimizations are easier to apply to a model. However, these techniques often create significant drops in accuracy, as the model does not have a chance to readjust to the optimization space.
 
-- **Training-aware**<br>
+- **Training-aware**
 Sparsity is applied gradually, and the non-zero weights are adjusted with training data. Training-aware pruning and quantization require setting up a training pipeline and implementing complex algorithms. However, applying the pruning and quantization gradually and fine-tuning the non-zero weights with training data enables accuracy to recover to 99% of the baseline dense model even as sparsity is pushed to very high levels.
 
 **SparseZoo** and **SparseML** use **training-aware unstructured pruning** and **training-aware quantization** (as well as post-training) to create very sparse models that sacrifice very little accuracy. Training-aware techniques apply the sparsification gradually, allowing the model to adjust by fine-tuning the remaining weights with the training dataset at each step. This technique is critical to maintaining high accuracy at the high levels of sparsity needed to reach GPU-class performance.

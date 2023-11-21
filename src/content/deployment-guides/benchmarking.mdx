@@ -129,7 +129,7 @@ The throughput value reported comes from measuring the number of finished infere
 
 ### Example Benchmarking Output of Synchronous Versus Asynchronous
 
-**BERT 3-layer FP32 Sparse Throughput**<br>There is no need to add a scenario argument since async is the default option:
+**BERT 3-layer FP32 Sparse Throughput** There is no need to add a scenario argument since async is the default option:
 
 ```bash
 $ deepsparse.benchmark zoo:nlp/question_answering/bert-base/pytorch/huggingface/squad/pruned_3layers-aggressive_83
@@ -158,7 +158,7 @@ $ deepsparse.benchmark zoo:nlp/question_answering/bert-base/pytorch/huggingface/
 > Iterations: 840
 ```
 
-**BERT 3-layer FP32 Sparse Latency**<br>To select a synchronous inference scenario, add -s sync:
+**BERT 3-layer FP32 Sparse Latency** To select a synchronous inference scenario, add -s sync:
 
 ```bash
 $ deepsparse.benchmark zoo:nlp/question_answering/bert-base/pytorch/huggingface/squad/pruned_3layers-aggressive_83 -s sync

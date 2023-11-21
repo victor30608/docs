@@ -75,9 +75,9 @@ See the [Deploying With DeepSparse Server Guide](/user-guides/deploying-deepspar
 
 There are two key elements that should be added to the Server configuration to set up logging.
 
-- **`loggers`**<br>This element configures the loggers that are used by the Server. Each element is a dictionary of the form `{logger_name: {arg_1: arg_value}}`.
+- **`loggers`** This element configures the loggers that are used by the Server. Each element is a dictionary of the form `{logger_name: {arg_1: arg_value}}`.
 
-- **`data_logging`**<br>This element identifies which/how data should be logged for an endpoint. It is a dictionary of the form `{identifier: `[log_config]}`.
+- **`data_logging`** This element identifies which/how data should be logged for an endpoint. It is a dictionary of the form `{identifier: `[log_config]}`.
 
     - **`identifier`** specifies the stages where logging should occur. It can either be a pipeline `stage` (see <em>Stages</em> above) or `stage.property` if the data type at a particular stage has a property. If the data type at a `stage` is a dictionary or list, you can access via slicing, indexing, or dictionary access (for example `stage[0][:,:,0]['key3']`).
 
@@ -103,18 +103,18 @@ endpoints:
         - func: np.shape        # framework function
           frequency: 1
           target_loggers:
-            - python          
+            - python
 
       pipeline_inputs.images[0]:          # applies to the first image (of the form stage.property[idx])
         - func: mean_pixels_per_channel   # built-in function
           frequency: 2
           target_loggers:
-            - python        
+            - python
         - func: fraction_zeros  # built-in function
           frequency: 2
           target_loggers:
             - prometheus
-      
+
       engine_inputs:            # applies to the engine_inputs data (of the form stage)
         - func: np.shape        # framework function
           frequency: 1
@@ -174,7 +174,7 @@ class CustomLogger(BaseLogger):
             of "<pipeline_name>/<logging_target>"
             e.g. "image_classification/pipeline_inputs"
         :param value: The item that is logged along with the identifier
-        :param category: The metric category that the log belongs to. 
+        :param category: The metric category that the log belongs to.
             By default, we recommend sticking to our internal convention
             established in the MetricsCategories enum.
         """
@@ -248,7 +248,7 @@ loggers:
   python:
   prometheus:
     port: 6100
- 
+
 endpoints:
   - task: image_classification
     route: /image_classification/predict
@@ -274,7 +274,7 @@ endpoints:
           frequency: 1
           target_loggers:
             - prometheus
-      
+
       pipeline_outputs.scores[0]:
         - func: identity
           frequency: 1
@@ -292,7 +292,7 @@ endpoints:
           target_loggers:
             - python
             - prometheus
-          
+
       pipeline_outputs.scores[0]:
         - func: identity
           frequency: 1

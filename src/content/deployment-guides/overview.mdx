@@ -31,9 +31,9 @@ DeepSparse is able to integrate into popular deep learning libraries (for exampl
 
 DeepSparse achieves its performance using breakthrough algorithms to accelerate the computation. Two high-level ideas underpin the system:
 
-1. **DeepSparse is "sparsity-aware.”**<br>Neural Magic has implementations of common neural network operations that take advantage of structured and unstructured sparsity. Because the locations of the 0 weights in a sparse model are known at compile time, DeepSparse can "skip" the multiply-adds by 0. This reduces the number of instructions significantly, and the computation becomes memory-bound.
+1. **DeepSparse is "sparsity-aware.”** Neural Magic has implementations of common neural network operations that take advantage of structured and unstructured sparsity. Because the locations of the 0 weights in a sparse model are known at compile time, DeepSparse can "skip" the multiply-adds by 0. This reduces the number of instructions significantly, and the computation becomes memory-bound.
 
-2. **DeepSparse takes advantage of the large caches in CPUs.**<br>DeepSparse identifies and breaks down the computational graph into depth-wise chunks (called **tensor-columns**) that can be executed in parallel across many CPU cores. This pattern has a much better locality of reference in comparison to traditional layer-by-layer execution. In this way, DeepSparse minimizes data movement in and out of the large caches in a CPU, which is the performance bottleneck in a memory-bound system.
+2. **DeepSparse takes advantage of the large caches in CPUs.** DeepSparse identifies and breaks down the computational graph into depth-wise chunks (called **tensor-columns**) that can be executed in parallel across many CPU cores. This pattern has a much better locality of reference in comparison to traditional layer-by-layer execution. In this way, DeepSparse minimizes data movement in and out of the large caches in a CPU, which is the performance bottleneck in a memory-bound system.
 
 These two ideas sum up GPU-class performance on commodity CPUs! As far as we know, DeepSparse is the only production-grade runtime that focuses on speedups from unstructured sparsity. The unstructured sparsity optimizations are hard to implement but are an important unlock because unstructured pruning allows us to reach the high levels of sparsity needed to see the performance gains without sacrificing accuracy.
 Beyond all the GPU-class performance and benefits of the scalability of CPU-only deployments, DeepSparse also wraps the runtime with APIs and utilities that simplify the process of adding inference to an application and monitoring a model in production. For instance:
@@ -104,7 +104,7 @@ The example below downloads a 90% pruned-quantized BERT model for sentiment anal
 from deepsparse import Pipeline
 
 # download onnx, set up pipeline
-zoo_stub = "zoo:nlp/sentiment_analysis/obert-base/pytorch/huggingface/sst2/pruned90_quant-none"  
+zoo_stub = "zoo:nlp/sentiment_analysis/obert-base/pytorch/huggingface/sst2/pruned90_quant-none"
 sentiment_analysis_pipeline = Pipeline.create(
   task="sentiment-analysis",    # name of the task
   model_path=zoo_stub,          # zoo stub or path to local onnx file
